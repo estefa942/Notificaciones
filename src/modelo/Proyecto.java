@@ -17,13 +17,8 @@ public class Proyecto {
     int presupuesto; 
     int recursosGastados;
 
-    public Proyecto(String nombre, String areaEstudio, String problema, float porcentajeTiempoFinalizacion, int presupuesto, int recursosGastados) {
-        this.nombre = nombre;
-        this.areaEstudio = areaEstudio;
-        this.problema = problema;
-        this.porcentajeTiempoFinalizacion = porcentajeTiempoFinalizacion;
-        this.presupuesto = presupuesto;
-        this.recursosGastados = recursosGastados;
+    public Proyecto() {
+       
     }
 
     public String getNombre() {

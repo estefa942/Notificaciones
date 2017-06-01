@@ -17,7 +17,7 @@ ControladorSistema cs = new ControladorSistema();
     @Override
     public void enviarNotificacion() {
         NotificacionPresupuestal np = new NotificacionPresupuestal();
-        System.out.println("Vía SMs informamos que:");
+        System.out.println("Vía SMS informamos que:");
         cs.obtenerMensaje(np);//Obtiene el mensaje de la notificación pasada por parámetro
     }
    

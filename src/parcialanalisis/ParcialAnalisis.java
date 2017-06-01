@@ -5,17 +5,27 @@
  */
 package parcialanalisis;
 
+import controlador.ControladorSistema;
+import modelo.NotificacionPresupuestal;
+import modelo.NotificacionRecursos;
+import modelo.NotificacionTiempo;
+
 /**
  *
  * @author estef
  */
 public class ParcialAnalisis {
-
-    /**
-     * @param args the command line arguments
-     */
+    static ControladorSistema cs = new ControladorSistema();
+    static NotificacionPresupuestal np = new NotificacionPresupuestal();
+    static NotificacionRecursos nr = new NotificacionRecursos();
+    static NotificacionTiempo nt = new NotificacionTiempo();
+    public static void llamarSistema(){
+        cs.consultarProyectos(np);
+        cs.consultarProyectos(nr);
+        cs.consultarProyectos(nt);
+    }
     public static void main(String[] args) {
-        // TODO code application logic here
+        llamarSistema();
     }
     
 }

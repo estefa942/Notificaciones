@@ -13,7 +13,7 @@ public class NotificacionPresupuestal implements Notificacion {
 
     @Override
     public void mensaje() {
-        System.out.println("El presupuesto se está agotando");
+        System.out.println("El presupuesto se está agotando\n");
     }
     
 }

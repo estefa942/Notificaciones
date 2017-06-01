@@ -13,7 +13,7 @@ public class NotificacionTiempo implements Notificacion{
 
     @Override
     public void mensaje() {
-        System.out.println("El proyecto está llegando a su fin");
+        System.out.println("El proyecto está llegando a su fin\n");
     }
     
 }

@@ -5,10 +5,21 @@
  */
 package controlador;
 
+import modelo.NotificacionPresupuestal;
+import modelo.NotificacionRecursos;
+
 /**
  *
  * @author estef
  */
-public class NotificacionWebServer {
+public class NotificacionWebServer implements NotificationStrategy{
+    ControladorSistema cs = new ControladorSistema();
+
+    @Override
+    public void enviarNotificacion() {
+        NotificacionRecursos nr = new NotificacionRecursos();
+        System.out.println("Vía Web Server informamos que:");
+        cs.obtenerMensaje(nr);//Obtiene el mensaje de la notificación pasada por parámetro
+    }
     
 }

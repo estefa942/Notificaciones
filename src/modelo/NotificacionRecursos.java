@@ -13,7 +13,7 @@ public class NotificacionRecursos implements Notificacion{
 
     @Override
     public void mensaje() {
-           System.out.println("Los recursos se estan agotando");
+           System.out.println("Los recursos se estan agotando\n");
     }
     
     
