@@ -3,29 +3,38 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package parcialanalisis;
+package serviciosTecnicos.servidor;
 
-import controlador.ControladorSistema;
-import modelo.NotificacionPresupuestal;
-import modelo.NotificacionRecursos;
-import modelo.NotificacionTiempo;
+import dominio.controladores.ControladorSistema;
+import dominio.controladores.ControladorSistema;
+import serviciosTecnicos.notificaciones.NotificacionPresupuestal;
+import serviciosTecnicos.notificaciones.NotificacionRecursos;
+import serviciosTecnicos.notificaciones.NotificacionTiempo;
 
 /**
  *
- * @author estef
+ * @author Estefany Muriel
  */
-public class ParcialAnalisis {
+public class SimuladorServidor {
+
     static ControladorSistema cs = new ControladorSistema();
     static NotificacionPresupuestal np = new NotificacionPresupuestal();
     static NotificacionRecursos nr = new NotificacionRecursos();
     static NotificacionTiempo nt = new NotificacionTiempo();
-    public static void llamarSistema(){
+
+    /**
+     * Este método simulará el llamado que hace constantemente el servidor al
+     * sistema para pasarle las notificaciones y que el sistema analice sus
+     * proyectos
+     */
+    public static void llamarSistema() {
         cs.consultarProyectos(np);
         cs.consultarProyectos(nr);
         cs.consultarProyectos(nt);
     }
+
     public static void main(String[] args) {
         llamarSistema();
     }
-    
+
 }

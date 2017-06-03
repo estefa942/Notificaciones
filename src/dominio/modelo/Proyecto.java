@@ -1,21 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package modelo;
+
+package dominio.modelo;
 
 /**
  *
- * @author estef
+ * @author Estefany Muriel
  */
 public class Proyecto {
-    String nombre;
-    String areaEstudio;
-    String problema;
-    float porcentajeTiempoFinalizacion;
-    int presupuesto; 
-    int recursosGastados;
+    private String nombre;
+    private String areaEstudio;
+    private String problema;
+    private float porcentajeTiempoFinalizacion;
+    private int presupuesto; 
+    private int recursosGastados;
 
     public Proyecto() {
        

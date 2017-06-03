@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controlador;
+package dominio.proyectos;
  
 import java.util.ArrayList;
-import modelo.Proyecto;
+import dominio.modelo.Proyecto;
 
 /**
  *
@@ -15,8 +15,8 @@ import modelo.Proyecto;
 public class ControladorProyectos {
   
     
-    static ArrayList<Proyecto> proyectosInvestigacion = new ArrayList<>();
-    
+    private static ArrayList<Proyecto> proyectosInvestigacion = new ArrayList<>();
+    //acá tengo algunos proyectos, para poder hacer la simulación del sistema
     public ControladorProyectos(){
     Proyecto proyecto = new Proyecto();
     proyecto.setNombre("Grafos");

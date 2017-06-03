@@ -3,17 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo;
+package serviciosTecnicos.notificaciones;
 
 /**
  *
  * @author estef
  */
-public class NotificacionTiempo implements Notificacion{
-
-    @Override
-    public void mensaje() {
-        System.out.println("El proyecto está llegando a su fin\n");
-    }
-    
+public interface Notificacion {
+    /**
+     * En este método podemos obtener los mensajes que van a emitir las  notificaciones
+     */
+    public void mensaje();
 }

@@ -3,16 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controlador;
+package serviciosTecnicos.mensajes;
 
-import modelo.NotificacionPresupuestal;
-import modelo.NotificacionTiempo;
+import dominio.controladores.ControladorSistema;
+import serviciosTecnicos.notificaciones.NotificacionPresupuestal;
+import serviciosTecnicos.notificaciones.NotificacionTiempo;
 
 /**
  *
- * @author estef
+ * @author Estefany Muriel
  */
-public class NotificacionCorreoSMTP implements NotificationStrategy{
+public class MensajeSMTP implements MensajeStrategy{
     ControladorSistema cs = new ControladorSistema();
     @Override
     public void enviarNotificacion() {

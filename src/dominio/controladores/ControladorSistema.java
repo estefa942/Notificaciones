@@ -3,22 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controlador;
+package dominio.controladores;
 
+import dominio.proyectos.ControladorProyectos;
+import serviciosTecnicos.mensajes.MensajeSMS;
+import serviciosTecnicos.mensajes.MensajeSMTP;
+import serviciosTecnicos.mensajes.MensajeStrategy;
+import serviciosTecnicos.mensajes.MensajeWebServer;
 import java.util.ArrayList;
-import modelo.Notificacion;
-import modelo.NotificacionPresupuestal;
-import modelo.NotificacionTiempo;
-import modelo.Proyecto;
+import serviciosTecnicos.notificaciones.Notificacion;
+import serviciosTecnicos.notificaciones.NotificacionPresupuestal;
+import serviciosTecnicos.notificaciones.NotificacionRecursos;
+import serviciosTecnicos.notificaciones.NotificacionTiempo;
+import dominio.modelo.Proyecto;
 
 /**
  *
- * @author estef
+ * @author Estefany Muriel Cano
  */
 public class ControladorSistema {
 
-    static ControladorProyectos cp = new ControladorProyectos();
-
+    private static ControladorProyectos cp = new ControladorProyectos();
+    private static ArrayList<Proyecto> proyectos = cp.getProyectosInvestigacion();
+/**
+ * Este método obtiene los mensajes de los diferentes tipos de notificaciones. * 
+ * @param n La notificación de la cual se quiere obtener el mensaje
+ */
     public void obtenerMensaje(Notificacion n) {
         n.mensaje();
     }
@@ -31,7 +41,7 @@ public class ControladorSistema {
      * @param n
      * @return
      */
-    static ArrayList<Proyecto> proyectos = cp.getProyectosInvestigacion();
+    
     public static void consultarProyectos(Notificacion n) {
         ArrayList<Proyecto> proyectosSeleccionados = new ArrayList<>();
         Proyecto proyecto;
@@ -63,8 +73,8 @@ public class ControladorSistema {
     }
 /**
  * Muestra los proyectos que van a hacer notificados y les envía su correspondiente notificación
- * @param proyectos
- * @param n 
+ * @param proyectos proyectos de investigación que se tienen
+ * @param n el tipo de notificacion 
  */
     public static void notificarProyectos(ArrayList<Proyecto> proyectos, Notificacion n) {
         if(proyectos.size() != 0){
@@ -79,19 +89,19 @@ public class ControladorSistema {
    /**
     * Obtiene la estrategia de la notificación que se va enviar () SMS,correo SMTP, web Server) en base 
     * del tipo de noticación que se ingresa por parámetro;
-    * @param n 
+    * @param n tipo de notificacion
     */
     public static void obtenerNotificacion(Notificacion n){
-       NotificationStrategy  notificacionStrategy = null;
+       MensajeStrategy  mensajeStrategy = null;
         if (n instanceof NotificacionPresupuestal) {
-                notificacionStrategy = new NotificacionSMS();
+                mensajeStrategy = new MensajeSMS();
         }
-        else if(n instanceof NotificacionTiempo){
-            notificacionStrategy = new NotificacionCorreoSMTP();
+        else if(n instanceof NotificacionRecursos){
+            mensajeStrategy = new MensajeWebServer();
         }
         else{
-            notificacionStrategy = new NotificacionWebServer();
+            mensajeStrategy = new MensajeSMTP();
         }
-        notificacionStrategy.enviarNotificacion();
+       mensajeStrategy.enviarNotificacion();
 }
 }
